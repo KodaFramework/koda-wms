@@ -1,17 +1,17 @@
 require 'sinatra/base'
 require 'rack/mount'
 require 'koda-content'
-require 'koda-authorisation'
+require 'koda-content/middleware/content-authorisation'
 require 'koda-admin'
-require 'koda-admin-authorisation'
+require 'koda-admin/admin-authorisation'
 
 module Koda
   class AuthorisedApi < Koda::Api
-    use Koda::Authorisation
+    use Koda::Authorisation::Content
   end
 
   class AuthorisedAdmin < Koda::Admin
-    use Koda::AdminAuthorisation
+    use Koda::Authorisation::Admin
   end
 
   def self.create_application(app, use_authorisation = false)

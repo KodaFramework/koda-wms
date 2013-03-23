@@ -2,11 +2,11 @@
 lib = File.expand_path('../lib/', __FILE__)
 $:.unshift lib unless $:.include?(lib)
 
-require 'bundler/version'
+require 'koda-wms/version'
 
 Gem::Specification.new do |s|
-  s.name        = "koda-complete"
-  s.version     = "0.0.1"
+  s.name        = "koda-wms"
+  s.version     = Koda::WMS::VERSION
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Marcel du Prez", "Derek Ekins"]
   s.email       = ["marceldupr@gmail.com", "derek@spathi.com"]
@@ -19,14 +19,12 @@ Gem::Specification.new do |s|
   s.add_dependency 'sinatra'
   s.add_dependency 'koda-admin'
   s.add_dependency 'koda-content'
+  s.add_dependency 'koda-ui'
   s.add_dependency 'rack-mount'
-  s.add_dependency 'koda-authorisation'
 
 
-  s.add_development_dependency 'rspec', '>= 2.8'
-  s.add_development_dependency 'rack-test'
+  s.add_development_dependency 'rake'
 
   s.files        = Dir.glob("{lib}/**/*")
-  #s.executables  = ['bundle']
   s.require_path = 'lib'
 end
